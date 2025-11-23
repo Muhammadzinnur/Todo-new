@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Todo Mukhammadzinur</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-p9+7+Y5Yy3qz6QYgK0Y4QYv1+2z3Q1X1m9aK7sE4b6V7YJ1h3Q6v9Y5Z4Q1a2b3c" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="min-h-screen bg-gradient-to-br from-indigo-600 via-purple-700 to-fuchsia-700 flex items-center justify-center p-6 text-white select-none">
+  <div class="w-full max-w-md bg-white/10 backdrop-blur-2xl p-7 rounded-3xl shadow-2xl border border-white/20">
+    <h1 class="text-4xl font-extrabold text-center mb-6 drop-shadow-md tracking-wide">TODO </h1>
+
+    
+    <div class="flex gap-3 mb-5">
+      <input id="taskInput" type="text" placeholder="Vazifa kirit !" class="flex-1 p-3 rounded-xl bg-white/20 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-fuchsia-300 backdrop-blur-md shadow-inner" />
+      <button id="addBtn" class="px-5 py-3 rounded-xl bg-gradient-to-r from-fuchsia-500 to-purple-500 hover:brightness-110 active:scale-95 transition shadow-lg">Qo'sh</button>
+    </div>
+
+    
+    <ul id="taskList" class="space-y-3"></ul>
+  </div>
+
+<script src="./main.js">
+
+</script>
+</body>
+</html>
