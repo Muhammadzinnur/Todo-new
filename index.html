@@ -1,29 +1,218 @@
-<!doctype html>
-<html lang="uz">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Todo Mukhammadzinur</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-p9+7+Y5Yy3qz6QYgK0Y4QYv1+2z3Q1X1m9aK7sE4b6V7YJ1h3Q6v9Y5Z4Q1a2b3c" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .todo-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .todo-container h1 {
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 2em;
+        }
+
+        .input-group {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .input-group input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 10px 0 0 10px;
+            outline: none;
+            font-size: 1em;
+            color: white;
+            background: linear-gradient(270deg, #6a11cb, #2575fc, #ff3cac, #6a11cb, #A47DAB, #D3D3FF, #8F00FF, #4B0082, #8F00FF, #7F00FF, #6C3BAA);
+            background-size: 600% 600%;
+            animation: GradientGlow 5s ease infinite;
+            box-shadow: 0 0 10px rgba(255, 60, 172, 0.5), 0 0 20px rgba(106, 17, 203, 0.4);
+        }
+
+        .input-group input::placeholder {
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .input-group button {
+            padding: 10px 20px;
+            background: linear-gradient(270deg, #ff3cac, #784BA0, #2B86C5, #ff3cac);
+            background-size: 600% 600%;
+            animation: GradientGlow 6s ease infinite;
+            border: none;
+            border-radius: 0 10px 10px 0;
+            color: white;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(255, 60, 172, 0.6), 0 0 20px rgba(106, 17, 203, 0.5);
+            transition: all 0.4s ease;
+        }
+
+        .input-group button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 60, 172, 0.6);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    animation: fadeIn 0.3s ease forwards;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.9s ease;
+}
+
+        
+
+        .task-text {
+            flex: 1;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 5px;
+        }
+
+        .btn {
+            padding: 5px 10px;
+            font-size: 0.8em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-edit {
+            background-color: #ffa500;
+            color: white;
+        }
+
+        .btn-delete {
+            background-color: #dc143c;
+            color: white;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        @keyframes GradientGlow {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-indigo-600 via-purple-700 to-fuchsia-700 flex items-center justify-center p-6 text-white select-none">
-  <div class="w-full max-w-md bg-white/10 backdrop-blur-2xl p-7 rounded-3xl shadow-2xl border border-white/20">
-    <h1 class="text-4xl font-extrabold text-center mb-6 drop-shadow-md tracking-wide">TODO </h1>
 
-    
-    <div class="flex gap-3 mb-5">
-      <input id="taskInput" type="text" placeholder="Vazifa kirit !" class="flex-1 p-3 rounded-xl bg-white/20 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-fuchsia-300 backdrop-blur-md shadow-inner" />
-      <button id="addBtn" class="px-5 py-3 rounded-xl bg-gradient-to-r from-fuchsia-500 to-purple-500 hover:brightness-110 active:scale-95 transition shadow-lg">Qo'sh</button>
-    </div>
+<body>
+    <div class="todo-container">
+        <h1>TODO PRO</h1>
+        <div class="input-group">
+            <input type="text" id="taskInput" placeholder="Qoshing">
+            <button onclick="addTask()">Add</button>
+        </div>
+        <ul id="taskList"></ul>
+    </div> 
 
-    
-    <ul id="taskList" class="space-y-3"></ul>
-  </div>
+    <script>
+        function addTask() {
+            const input = document.getElementById('taskInput');
+            const taskText = input.value.trim();
+            if (taskText === '') return;
 
-<script src="./main.js">
+            const li = document.createElement('li');
 
-</script>
+            const span = document.createElement('span');
+            span.className = 'task-text';
+            span.textContent = taskText;
+
+            const btnGroup = document.createElement('div');
+            btnGroup.className = 'btn-group';
+
+            const editBtn = document.createElement('button');
+            editBtn.className = 'btn btn-edit';
+            editBtn.textContent = 'Edit';
+            editBtn.onclick = () => editTask(span);
+
+            const deleteBtn = document.createElement('button');
+            deleteBtn.className = 'btn btn-delete';
+            deleteBtn.textContent = 'Delete';
+            deleteBtn.onclick = () => li.remove();
+
+            btnGroup.appendChild(editBtn);
+            btnGroup.appendChild(deleteBtn);
+
+            li.appendChild(span);
+            li.appendChild(btnGroup);
+
+            document.getElementById('taskList').appendChild(li);
+
+            input.value = '';
+        }
+
+        function editTask(spanElement) {
+            const newTask = prompt("Yangi matnni kiriting:", spanElement.textContent);
+            if (newTask !== null && newTask.trim() !== "") {
+                spanElement.textContent = newTask.trim();
+            }
+        }
+    </script>
 </body>
+
 </html>
